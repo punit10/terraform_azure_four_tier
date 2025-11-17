@@ -2,7 +2,6 @@
 locals {
   webvm_custom_data = <<CUSTOM_DATA
 #!/bin/sh
-#!/bin/sh
 #sudo yum update -y
 sudo yum install -y httpd
 sudo systemctl enable httpd
@@ -31,7 +30,7 @@ resource "azurerm_linux_virtual_machine" "web_linuxvm" {
   network_interface_ids = [azurerm_network_interface.web_linuxvm_nic.id]
   admin_ssh_key {
     username   = "azureuser"
-    public_key = file("${path.module}/terraform_linux_kp.pub")
+    public_key = file("${path.module}/ssh-keys/terraform_linux_kp.pub")
   }
   os_disk {
     caching              = "ReadWrite"
