@@ -30,5 +30,15 @@ resource "azurerm_linux_virtual_machine" "web_linuxvm" {
     version   = "latest"
   }
   custom_data = filebase64("${path.module}/app_scripts/ubuntu_vm_script.sh")
+
+  # For RHEL/Redhat linux
+  # source_image_reference {
+  #   publisher = "RedHat"
+  #   offer     = "RHEL"
+  #   sku       = "83-gen2"
+  #   version   = "latest"
+  # }
+  #custom_data = filebase64("${path.module}/app_scripts/rhel_vm_script.sh")
+
   # custom_data = base64encode(local.webvm_custom_data)
 }
