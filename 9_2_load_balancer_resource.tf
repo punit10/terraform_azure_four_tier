@@ -5,6 +5,7 @@ resource "azurerm_public_ip" "web_lbpublicip" {
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Static"
   sku                 = "Standard"
+  domain_name_label   = "lb-dns-webapp1811"
   tags                = local.common_tags
 }
 
@@ -35,7 +36,7 @@ resource "azurerm_lb_probe" "web_lb_probe" {
 }
 
 # Resource-5: Create LB Rule
-resource "azurerm_lb_rule" "web_lb_rule_app1" {
+resource "azurerm_lb_rule" "web_http_lb_rule_app1" {
   name                           = "web-app1-rule"
   protocol                       = "Tcp"
   frontend_port                  = 80

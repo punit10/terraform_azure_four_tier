@@ -11,13 +11,13 @@ output "web_lb_id" {
 }
 
 # Load Balancer Frontend IP Configuration Block
-output "web_lb_frontend_ip_configuration" {
-  description = "Web LB frontend_ip_configuration Block"
-  value       = [azurerm_lb.web_lb.frontend_ip_configuration]
-}
+# output "web_lb_frontend_ip_configuration" {
+#   description = "Web LB frontend_ip_configuration Block"
+#   value       = [azurerm_lb.web_lb.frontend_ip_configuration]
+# }
 
 
 output "lb_dns_name" {
   description = "Web LB DNS url"
-  value = azurerm_public_ip.web_lbpublicip.fqdn
+  value       = azurerm_public_ip.web_lbpublicip.fqdn
 }
